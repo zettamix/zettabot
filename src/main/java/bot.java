@@ -30,6 +30,7 @@ public class bot {
 		final boolean asUser = true;
 		//final String coreURL = "https://slack.com/api/chat.postMessage?token="+tokenBot+"&channel="+channel+"&text="+message+"&as_user="+asUser;
 		final String startURL = "https://slack.com/api/rtm.start?token="+tokenBot+"&pretty=1";
+		final String tokenBot = "xoxb-50461497911-f7a9PF6MKBcmsoNo2GXaJOraY";
 		
 		URL obj = new URL(startURL + tokenBot);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
