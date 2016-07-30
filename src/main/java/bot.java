@@ -37,7 +37,7 @@ public class bot {
 		final String message = "shi";
 		final boolean asUser = true;
 		//final String coreURL = "https://slack.com/api/chat.postMessage?token="+tokenBot+"&channel="+channel+"&text="+message+"&as_user="+asUser;
-		final String tokenBot = "xoxb-50461497911-kB6Lk2JG8m6zKWdpbZyFVgYB";
+		
 		final String startURL = "https://slack.com/api/rtm.start?token="+tokenBot+"&pretty=1";
 		
 		
@@ -75,26 +75,30 @@ public class bot {
 	
 	public void rtmConnection(String response, ByteArrayOutputStream temp, PrintStream old) throws Exception{
 		JSONObject sendMsj = new JSONObject();
+		String[] anwsers = new String[]{"uno","dos","tres","cuatro","cinco"};
+		Random generator = new Random();
+		int nextanw = generator.nextInt(4);
 		sendMsj.accumulate("id", "1")
 		.accumulate("type", "message")
 		.accumulate("channel", "D1GDGLD16")
-		.accumulate("text", "jojo");
+		.accumulate("text", anwsers[nextanw]);
 		
 		WebSocket ws = connect(response);
 		//System.out.println(sendMsj.toString());
 		//System.out.flush();
 	    //System.setOut(old);
 		//System.out.println(":D" + temp.toString() + ":D");
-		while(!temp.toString().equals("")){
+		Boolean test = temp.toString().equals("");
+		test.toString();
 		String jeje = temp.toString();
-		if(temp.toString().equals("Exito")){
-			ws.sendText(sendMsj.toString());
-			System.out.flush();
-		    System.setOut(old);
-			System.out.println("Msj sended :D");
+		jeje.length();
+		while(temp.toString().equals("")){
 		}
-		}
-		
+		ws.sendText(sendMsj.toString());
+		System.out.flush();
+	    System.setOut(old);
+		System.out.println("Msj sended :D");
+		System.exit(0);
 	}
 	
 	private static WebSocket connect(String response) throws IOException, WebSocketException
